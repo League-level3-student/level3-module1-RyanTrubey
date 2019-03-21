@@ -23,7 +23,7 @@ public class _02_TextUndoRedo implements KeyListener {
 	 * */
 	JFrame frame = new JFrame();
 	JPanel panel = new JPanel();
-	JLabel label = new JLabel("asdf");
+	JLabel label = new JLabel();
 	String s = "";
 	Stack<Character> text = new Stack<Character>();
 	public static void main(String[] args) {
@@ -46,10 +46,21 @@ public class _02_TextUndoRedo implements KeyListener {
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
 		if(e.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
-			text.push(e.getKeyChar());
-			
+			char[] chars = s.toCharArray();
+			text.push(chars[chars.length-1]);
+			System.out.println(text);
+			String a = "";
+			for(int i = 0; i < chars.length-1; i++) {
+				a = a+chars[i];
+			}
+			s = a;
+		} else if(e.getKeyCode() == KeyEvent.VK_BACK_SLASH) {
+			s = s+text.pop();
+			System.out.println(text);
+		} else {
+			s = s+e.getKeyChar();
+			text.clear();
 		}
-		s = s+e.getKeyChar();
 		label.setText(s);
 	}
 	@Override
