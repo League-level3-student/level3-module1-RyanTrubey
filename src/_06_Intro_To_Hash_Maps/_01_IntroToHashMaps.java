@@ -8,8 +8,11 @@ public class _01_IntroToHashMaps {
 		HashMap<Integer, Double> roots  = new HashMap<Integer, Double>();
 		//2. Using a for-loop, add 500 entries to your HashMap. The key entry will be the 
 		//   current iteration of the loop (i). The value entry will be the square root of i.
+		double root;
 		for(int i = 1; i <= 500; i++) {
-			roots.put(i, Math.sqrt(i));
+			root = Math.sqrt(i);
+			roots.put(i, root);
+			System.out.println("The square root of " + i + " is " + roots.get(i));
 		}
 		//3. Iterate through all the entries in your HashMap displaying the keys with their respective
 		//   square roots (values). Use the following format.
